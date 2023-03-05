@@ -24,6 +24,7 @@ public class MyFirstTest {
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
 
+
 //        WebDriverManager.firefoxdriver().setup();
 //        firefoxDriver = new FirefoxDriver();
 //        firefoxDriver.get(url);
