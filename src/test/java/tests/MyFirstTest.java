@@ -9,8 +9,6 @@ import org.testng.annotations.Test;
 
 public class MyFirstTest {
     ChromeDriver driver;
-    FirefoxDriver firefoxDriver;
-
     String url = "https://www.google.com.ua/";
 
 
@@ -21,14 +19,7 @@ public class MyFirstTest {
         options.addArguments("--headless"); // включение headless-режима
         driver = new ChromeDriver(options);
         driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url);
+        Assert.assertEquals(driver.getCurrentUrl(), url+"!!!");
         driver.quit();
-
-
-//        WebDriverManager.firefoxdriver().setup();
-//        firefoxDriver = new FirefoxDriver();
-//        firefoxDriver.get(url);
-//        Assert.assertEquals(firefoxDriver.getCurrentUrl(), url);
-//        firefoxDriver.quit();
     }
 }
