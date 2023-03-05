@@ -19,7 +19,7 @@ public class MyFirstTest {
         options.addArguments("--headless"); // включение headless-режима
         driver = new ChromeDriver(options);
         driver.get(url);
-        Assert.assertEquals(driver.getCurrentUrl(), url+"!!!");
+        Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
 }
