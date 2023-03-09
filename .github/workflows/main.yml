@@ -8,7 +8,7 @@ on:
     branches: [ "master" ]
 
 env:
-  TEST_URL: ${{ variables.TEST_URL }}
+  TEST_URL: ${{ TEST_URL }}
 
 jobs:
   build:
