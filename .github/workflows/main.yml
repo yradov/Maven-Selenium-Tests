@@ -7,11 +7,12 @@ on:
   pull_request:
     branches: [ "master" ]
 
+env:
+  TEST_URL: ${{ secrets.TEST_URL }}
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 19.0.2
