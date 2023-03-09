@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  maven:
+    build: .      
+    container_name: github_actions-maven
+    command: mvn clean test
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - MAVEN_CONFIG=/root/.m2
+    depends_on:
+      - selenium
+
+
+  selenium:
+    image: selenium/standalone-chrome
+    container_name: github_actions-selenium
+    # network_mode: host
+    ports:
+      - "4444:4444"
