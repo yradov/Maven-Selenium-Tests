@@ -9,7 +9,7 @@ on:
 
 env:
   TEST_URL: ${{ vars.TEST_URL }}
-  TEST_PASSWORD: ${{ vars.TEST_PASSWORD }}
+  TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
 
 jobs:
   build:
