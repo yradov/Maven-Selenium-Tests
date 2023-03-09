@@ -25,8 +25,7 @@ public class MyFirstTest {
 
 
         String pageUrl = System.getenv("TEST_URL");
-        System.out.println("\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n" + pageUrl + "\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n");
-        driver.get(TEST_PAGE_URL);
+        driver.get(pageUrl);
         Assert.assertEquals(driver.getCurrentUrl(), TEST_PAGE_URL);
         driver.quit();
     }
