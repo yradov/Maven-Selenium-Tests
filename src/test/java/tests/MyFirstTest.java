@@ -27,6 +27,11 @@ public class MyFirstTest {
         String pageUrl = System.getenv("TEST_URL");
         driver.get(pageUrl);
         Assert.assertEquals(driver.getCurrentUrl(), TEST_PAGE_URL);
+
+        String password = System.getenv("TEST_PASSWORD");
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        System.out.println(password);
+        Assert.assertEquals(password, "11111111");
         driver.quit();
     }
 }
