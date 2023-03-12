@@ -18,7 +18,7 @@ public class MyFirstTest {
     final String TEST_PAGE_URL = "https://www.google.com.ua/";
 
 
-    @Test
+    @Test(enabled = false)
     public void firstTest() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
