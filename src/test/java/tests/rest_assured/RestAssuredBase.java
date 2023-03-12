@@ -3,6 +3,7 @@ package tests.rest_assured;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.http.Method;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.testng.annotations.BeforeClass;
@@ -34,14 +35,24 @@ public class RestAssuredBase {
         json = new JsonPath(response.getBody().asString());
     }
 
-    public void assignDataFromUrlGET(String url, Map<String, ?> params) {
-        response = given()
+    public void assignDataFromUrl(Method method, String url) {
+        response = given().log().uri()
+                .contentType(ContentType.JSON)
+                .when().request(method, url)
+                .then().log().body()
+                //.assertThat().statusCode(HttpResponseStatus.OK.code())
+                .extract().response();
+
+        json = new JsonPath(response.getBody().asString());
+    }
+
+    public void assignDataFromUrl(Method method, String url, Map<String, ?> params) {
+        response = given().log().uri()
                 .contentType(ContentType.JSON)
                 .params(params)
-                .when()
-                .get(url)
-                .then()
-                .assertThat().statusCode(HttpResponseStatus.OK.code())
+                .when().request(method, url)
+                .then().log().body()
+                //.assertThat().statusCode(HttpResponseStatus.OK.code())
                 .extract().response();
 
         json = new JsonPath(response.getBody().asString());

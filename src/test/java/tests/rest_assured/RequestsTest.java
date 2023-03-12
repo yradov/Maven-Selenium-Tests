@@ -1,5 +1,6 @@
 package tests.rest_assured;
 
+import io.restassured.http.Method;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,7 +11,7 @@ public class RequestsTest extends RestAssuredBase {
         myParams.put("page", 2);
         //Response response = getDataFromUrl("/api/users", myParams);
         //JsonPath json = new JsonPath(response.getBody().asString());
-        assignDataFromUrlGET("/api/users", myParams);
+        assignDataFromUrl(Method.GET,"/api/users", myParams);
 
         Assert.assertEquals(response.statusCode(), 200);
         Assert.assertEquals(response.jsonPath().getString("total_pages"), "2");
